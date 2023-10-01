@@ -16,6 +16,37 @@ A backend system to handle hotel room reservations.
    * Register a new user (guest).
    * Authenticate a user using username and password.
 
+# Database
+## Tables
+1. Room:
+   * id (Primary Key)
+   * room_number (Unique Integer): Unique identifier for each room.
+   * room_type (String): Type of the room (e.g., single, double, suite).
+   * price_per_night (Decimal): Price per night for the room.
+
+2. User (Django Default User Model):
+   * id (Primary Key)
+   * username (String): Unique username for authentication.
+   * password (String): User password (hashed for security).
+   * ... (Other fields from Django's default User model, such as email, first name, last name, etc.)
+
+3. Reservation:
+   * id (Primary Key)
+   * start_date (Date): Start date of the reservation.
+   * end_date (Date): End date of the reservation.
+   * is_cancelled (Boolean): Indicates if the reservation is canceled or active.
+   * room_id (Foreign Key): References the room_number field in the Room table.
+   * user_id (Foreign Key): References the id field in the User table.
+
+## Relationships:
+* Reservation and Room:
+  * Foreign Key: room_id in the Reservation table links to the room_number field in the Room table.
+  * Relationship: Many reservations can be associated with one room.
+
+* Reservation and User:
+  * Foreign Key: user_id in the Reservation table links to the id field in the User table.
+  * Relationship: Many reservations can be associated with one user (guest).
+
 ## 	Prerequisites
 
 make sure to use python version 3.11
