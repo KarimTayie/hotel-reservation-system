@@ -16,9 +16,6 @@ A backend system to handle hotel room reservations.
    * Register a new user (guest).
    * Authenticate a user using username and password.
 
-## Apis
-- users/create/ 
-
 ## 	Prerequisites
 
 make sure to use python version 3.11
@@ -84,3 +81,10 @@ $ python manage.py runserver 8000
 
 Postman API collection link:
 [Postman collection](https://api.postman.com/collections/5401296-a6aa87be-6955-469b-ae4e-1ad67119e249?access_key=PMAT-01HBMGCJHY9FK343CWNBZSDTEE)
+
+## Notes
+- Only admin users can create rooms. you can create an admin by running this command:
+```json
+$ python manage.py createsuperuser
+```
+- You can only cancel room reservations that you have reserved by the same user.
