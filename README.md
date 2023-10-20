@@ -108,6 +108,14 @@ Run server on port 8000:
 $ python manage.py runserver 8000
 ```
 
+### Testing
+
+Run tests:
+
+```json
+$ python manage.py test
+```
+
 ## API Doc
 
 Postman API collection link:
